@@ -1,3 +1,5 @@
+var package = require('../package.json')
+
 describe("cologne-service", () => {
   const verifier = require("pact").Verifier;
 
@@ -7,6 +9,8 @@ describe("cologne-service", () => {
       pactBrokerUrl: "http://localhost",
       provider: "cologne-service",
       providerStatesSetupUrl: "http://localhost:3000/cdc-setup/",
+      publishVerificationResult: true,
+      providerVersion: package.version
     };
 
     verifier.verifyProvider(opts)
