@@ -7,6 +7,12 @@ buildscript {
     }
 }
 
+plugins {
+    id "au.com.dius.pact" version "3.5.2"
+}
+
+project.version = '0.1.0'
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
@@ -14,7 +20,6 @@ apply plugin: 'org.springframework.boot'
 
 jar {
     baseName = 'info-app'
-    version =  '0.1.0'
 }
 
 repositories {
@@ -45,4 +50,11 @@ dependencies {
 
 test {
     systemProperties['pact.rootDir'] = "$buildDir/pacts"
+}
+
+pact {
+    publish {
+        pactDirectory = "$buildDir/pacts"
+        pactBrokerUrl = 'http://localhost'
+    }
 }
