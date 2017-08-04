@@ -16,8 +16,7 @@ import static org.mockito.Mockito.when;
 
 @RunWith(RestPactRunner.class)
 @Provider("hamburg-service")
-@PactFolder("../pacts")
-//@PactBroker(host="localhost", port="80") <- comment out the line above and use this one if you want to try out the pact-broker
+@PactBroker(host="localhost", port="80")
 public class VehiclesContractTest {
 
     private RegistrationRepository registrations;
